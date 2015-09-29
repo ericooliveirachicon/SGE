@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" 
+                xmlns="http://www.w3c.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.prime.com.tr/ui">
+   <h:head>
+    <!--   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link rel="icon" href="./resources/imgs/carro.png" type="image/ico" />
+        <title>SGE - Login</title> -->
+    </h:head>
+    <h:body>
+        <center>
+            <h:panelGrid columns="2" cellpadding="2">
+                <h:form>
+                    <h:panelGrid columns="2" cellpadding="2">
+                        <h:column>Login:</h:column>
+                        <h:column>
+                            <h:inputText value="#{loginUsuarioMB.loginUsuario}"></h:inputText>
+                        </h:column>
+                        <h:column>Senha:</h:column>
+                        <h:column>
+                            <h:inputSecret value="#{loginUsuarioMB.senhaUsuario}"></h:inputSecret>
+                        </h:column>
+                        <h:commandButton type="submit" value="Login" action="#{loginUsuarioMB.logar()}"></h:commandButton>
+                    </h:panelGrid>
+                </h:form>
+            </h:panelGrid>
+        </center>
+    </h:body>
+</ui:composition>

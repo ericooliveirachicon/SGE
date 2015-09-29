@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bd_sge?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password"/>
+    <mapping class="model.TbHospital"/>
+    <mapping class="model.TbAvaliaPeloEstagiario"/>
+    <mapping class="model.TbLog"/>
+    <mapping class="model.TdHorarioExp"/>
+    <mapping class="model.TdTipoOcorrencia"/>
+    <mapping class="model.TbVaga"/>
+    <mapping class="model.TbOcorrencia"/>
+    <mapping class="model.TbAvaliaEstagiario"/>
+    <mapping class="model.TaPermissao"/>
+    <mapping class="model.TbCenario"/>
+    <mapping class="model.TbMedico"/>
+    <mapping class="model.TbOrientador"/>
+    <mapping class="model.TbMenu"/>
+    <mapping class="model.TdQuestao"/>
+    <mapping class="model.TbPlanoAtividade"/>
+    <mapping class="model.TbPreco"/>
+    <mapping class="model.TbSupEstagio"/>
+    <mapping class="model.TbModulo"/>
+    <mapping class="model.TbPerfil"/>
+    <mapping class="model.TdEspecialidade"/>
+    <mapping class="model.TbFuncionarioHosp"/>
+    <mapping class="model.TdRgEstagiario"/>
+    <mapping class="model.TbSecretariaSaude"/>
+    <mapping class="model.TbRelatorio"/>
+    <mapping class="model.TbAvaliaPelaFaculdade"/>
+    <mapping class="model.TbFaculdade"/>
+    <mapping class="model.TbPessoa"/>
+    <mapping class="model.TbCalendarioGeral"/>
+    <mapping class="model.TbMapeamento"/>
+    <mapping class="model.TaQuestaoAvaliacao"/>
+    <mapping class="model.TbOpcao"/>
+    <mapping class="model.TbFuncionarioSec"/>
+    <mapping class="model.TbEstagiario"/>
+    <mapping class="model.TbUsuario"/>
+    <mapping class="model.TbCalendarioAluno"/>
+  </session-factory>
+</hibernate-configuration>

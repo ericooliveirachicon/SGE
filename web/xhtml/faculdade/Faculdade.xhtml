@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    
+    <ui:define name="conteudo">
+        <p:panel header="Tabela faculdade">
+            <h:form id="frmConsulta">  
+                <p:growl id="msgs" showDetail="true"/>  
+                <p:panelGrid columns="3">
+                    <p:column>
+                        Sigla da Faculdade:
+                    </p:column>
+                    <p:column>
+                        <p:inputText size="15" maxlength="30" value="#{faculdadeMB.sglFaculdade}"/>
+                    </p:column>
+                    <p:column>
+                        <p:commandButton value="Consultar" actionListener="#{faculdadeMB.filtrar()}" update=":frmConsulta:msgs, :frmConsulta:dtbConsulta" icon="ui-icon-search"/>
+                    </p:column>
+                </p:panelGrid>
+
+                <p:dataTable id="dtbConsulta" var="fac" value="#{faculdadeMB.listaTbFaculdade}" tableStyle="width:auto;" paginator="true" rows="5">  
+
+                    <p:column headerText="Identificador" style="width:100px">  
+                        <h:outputText value="#{fac.idtFaculdade}" />  
+                    </p:column>  
+
+                    <p:column headerText="Sigla" style="width:100px">  
+                        <h:outputText value="#{fac.sglFaculdade}" />  
+                    </p:column>  
+                    
+                    <p:column headerText="Telefone" style="width:300px">  
+                        <h:outputText value="#{fac.telFaculdade}" />  
+                    </p:column>  
+                    
+                    <p:column headerText="Email" style="width:300px">  
+                        <h:outputText value="#{fac.emailFaculdade}" />  
+                    </p:column>  
+
+                    <p:column headerText="Operação" style="width:200px">  
+                        <p:panelGrid columns="2">  
+                            <p:column>
+                                <p:commandButton id="btnEditar" update=":frmEditar:pngEditar" oncomplete="dlgEditarView.show()" icon="ui-icon-pencil" value="Editar">  
+                                    <f:setPropertyActionListener value="#{fac}" target="#{faculdadeMB.selecionado}" />  
+                                </p:commandButton>
+                            </p:column>
+                            <p:column>
+                                <p:commandButton id="btnExcluir" update=":frmExcluir:dlgConfExclusao" oncomplete="dlgConfExclusaoView.show()" icon="ui-icon-trash" value="Excluir">  
+                                    <f:setPropertyActionListener value="#{fac}" target="#{faculdadeMB.selecionado}" />  
+                                </p:commandButton>  
+                            </p:column>
+                        </p:panelGrid>  
+                    </p:column>  
+
+                </p:dataTable>  
+
+                <p:commandButton id="btnNovo" update=":frmEditar:pngEditar" oncomplete="dlgEditarView.show()" icon="ui-icon-plusthick" value="Novo" actionListener="#{faculdadeMB.novo}" ajax="true"/> 
+            </h:form> 
+
+            <p:dialog header="Editar" widgetVar="dlgEditarView" resizable="false" id="dlgEditar"  
+                      showEffect="fade" hideEffect="explode" modal="true">  
+                <h:form id="frmEditar">
+                    <p:panelGrid id="pngEditar" columns="2" style="margin:0 auto;">  
+                        <p:column>
+                            <h:outputText value="Identificador:" />  
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="idtFaculdade" value="#{faculdadeMB.selecionado.idtFaculdade}" disabled="true" size="5"/>  
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="Nome:" />  
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="nmeFaculdade" value="#{faculdadeMB.selecionado.nmeFaculdade}" size="50" required="true" requiredMessage="Sigla é um campo obrigatório!"/>  
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="Sigla:" />  
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="sglFaculdade" value="#{faculdadeMB.selecionado.sglFaculdade}" size="15" required="true" requiredMessage="Sigla é um campo obrigatório!"/>  
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="Endereço:" />  
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="endFaculdade" value="#{faculdadeMB.selecionado.endFaculdade}" size="50" required="true" requiredMessage="Sigla é um campo obrigatório!"/>  
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="Telefone:" />  
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="telFaculdade" value="#{faculdadeMB.selecionado.telFaculdade}" size="50" required="true" requiredMessage="Sigla é um campo obrigatório!"/>  
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="Email:" />  
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="emailFaculdade" value="#{faculdadeMB.selecionado.emailFaculdade}" size="50" required="true" requiredMessage="Sigla é um campo obrigatório!"/>  
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="Telefone Secundário:" />  
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="telSecFaculdade" value="#{faculdadeMB.selecionado.telSecFaculdade}" size="50"/>  
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="Senha:" />  
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="senhaFaculdade" value="#{faculdadeMB.selecionado.senhaFaculdade}" size="50" required="true" requiredMessage="Sigla é um campo obrigatório!"/>  
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="Número do Convênio:" />  
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="noFaculdade" value="#{faculdadeMB.selecionado.noConvenioFaculdade}" size="50" required="true" requiredMessage="Sigla é um campo obrigatório!"/>  
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="Data de validade do Convênio:" />  
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="dtaValFaculdade" value="#{faculdadeMB.selecionado.dtaValidadeConvenioFaculdade}" size="50" required="true" requiredMessage="Sigla é um campo obrigatório!"/>  
+                        </p:column>
+                        <p:column>
+                            <p:commandButton id="btnSalvar" update=":frmEditar:pngEditar, :frmConsulta:dtbConsulta, :frmConsulta:msgs" icon="ui-icon-disk" value="Salvar"  actionListener="#{faculdadeMB.salvar}" ajax="true"/>  
+                        </p:column>
+                        <p:column>
+                            <p:commandButton id="btnFechar" value="Fechar" icon="ui-icon-close" onclick="dlgEditarView.hide()"/>  
+                        </p:column>
+                    </p:panelGrid>  
+                </h:form>
+            </p:dialog>  
+
+            <h:form id="frmExcluir">
+                <p:confirmDialog id="dlgConfExclusao" message="Tem certeza que deseja excluir (#{faculdadeMB.selecionado.nmeFaculdade})?"  
+                                 header="Exclusão de Registro" severity="alert" widgetVar="dlgConfExclusaoView">  
+                    <p:commandButton id="btnConfirm" value="Sim" update=":frmConsulta:dtbConsulta, :frmConsulta:msgs" oncomplete="dlgConfExclusaoView.hide()" actionListener="#{faculdadeMB.excluir}" />  
+                    <p:commandButton id="btnDecline" value="Não" onclick="dlgConfExclusaoView.hide()" type="button" />   
+                </p:confirmDialog> 
+            </h:form>
+
+        </p:panel>
+    </ui:define>
+
+</ui:composition>

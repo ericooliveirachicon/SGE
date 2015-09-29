@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link rel="icon" href="./resources/imgs/carro.png" type="image/ico" />
+        <title>ViewAuto - Sistema para Montadoras</title>
+    </h:head>
+
+    <h:body>
+        <div id="top" class="top">
+            <ui:insert name="cabecalho">
+                <p:panel header="ViewAuto - Sistema para Montadoras de Veículos" footer="Versão: 1.0 - UniCEUB - Centro Universitário de Brasília">  
+                    <h:outputText value="Bem vindo ao sistema para montadoras!"/>
+                </p:panel> 
+            </ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="menu">
+                    <h:form>
+                        <p:menu style="width:270px">
+                            <p:submenu label="Faculdade">
+                                <p:menuitem value="Faculdade" icon="ui-icon-calculator" url="/faces/xhtml/faculdade/Faculdade.xhtml"/>
+                                <p:menuitem value="Login" icon="ui-icon-calculator" url="/faces/login.xhtml"/>
+                            </p:submenu>
+                        </p:menu>
+                    </h:form>
+                    <p:ajaxStatus>  
+                        <f:facet name="start">  
+                            <p:graphicImage value="resources/imgs/loading.gif" />  
+                        </f:facet>  
+                        <f:facet name="complete">  
+                            <h:outputText value="" />  
+                        </f:facet>  
+                    </p:ajaxStatus>  
+                </ui:insert>
+            </div>
+            <div id="content" class="left_content">
+                <ui:insert name="conteudo">
+                    <p:panel header="ViewAuto">  
+                        <h:outputText value="Seja Bem vindo!"/>
+                    </p:panel>
+                </ui:insert>
+            </div>
+        </div>
+    </h:body>
+</html>

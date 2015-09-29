@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="bd_sge"/>
+  <table-filter match-name="tb_mapeamento"/>
+  <table-filter match-name="tb_secretaria_saude"/>
+  <table-filter match-name="td_especialidade"/>
+  <table-filter match-name="tb_medico"/>
+  <table-filter match-name="td_horario_exp"/>
+  <table-filter match-name="tb_calendario_aluno"/>
+  <table-filter match-name="tb_modulo"/>
+  <table-filter match-name="tb_opcao"/>
+  <table-filter match-name="tb_funcionario_hosp"/>
+  <table-filter match-name="tb_log"/>
+  <table-filter match-name="tb_ocorrencia"/>
+  <table-filter match-name="tb_avalia_pelo_estagiario"/>
+  <table-filter match-name="tb_cenario"/>
+  <table-filter match-name="tb_plano_atividade"/>
+  <table-filter match-name="td_tipo_ocorrencia"/>
+  <table-filter match-name="tb_faculdade"/>
+  <table-filter match-name="tb_menu"/>
+  <table-filter match-name="tb_preco"/>
+  <table-filter match-name="tb_avalia_estagiario"/>
+  <table-filter match-name="tb_pessoa"/>
+  <table-filter match-name="td_questao"/>
+  <table-filter match-name="tb_funcionario_sec"/>
+  <table-filter match-name="tb_calendario_geral"/>
+  <table-filter match-name="tb_sup_estagio"/>
+  <table-filter match-name="tb_orientador"/>
+  <table-filter match-name="ta_questao_avaliacao"/>
+  <table-filter match-name="tb_avalia_pela_faculdade"/>
+  <table-filter match-name="tb_usuario"/>
+  <table-filter match-name="ta_permissao"/>
+  <table-filter match-name="tb_estagiario"/>
+  <table-filter match-name="td_rg_estagiario"/>
+  <table-filter match-name="tb_vaga"/>
+  <table-filter match-name="tb_perfil"/>
+  <table-filter match-name="tb_hospital"/>
+  <table-filter match-name="tb_relatorio"/>
+</hibernate-reverse-engineering>
